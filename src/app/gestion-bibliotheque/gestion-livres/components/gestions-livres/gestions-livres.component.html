@@ -1,0 +1,108 @@
+<div class="topbar row py-3 px-5 sticky-top">
+  <div class="col-sm-12 col-lg-8">
+    <h1 class="my-0">Welcome, Alain Uwezo</h1>
+    <span class="text-secondary">Trouver ici la liste des livres et les statistiques des divers produits</span>
+  </div>
+  <div class="col-sm-12 col-lg-4 text-end rechercher">
+    <div class="d-inline-block">
+      <div class="input-group bg-light rounded-3">
+        <input type="search" class="form-control"
+           placeholder="Rechercher un livre">
+        <button class="btn m-2" type="button" mat-button>
+          <mat-icon class="mat-12 align-bottom align-middle">search</mat-icon>
+          <span>Button</span>
+        </button>
+      </div>
+    </div>
+    <div class="d-inline-block ms-2">
+      <mat-icon role="button" class="mat-18 align-bottom notification-btn">notifications_none</mat-icon>
+    </div>
+  </div>
+</div>
+
+<div class="row my-3 mx-lg-4">
+  <div class="row align-items-center">
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+      <div class="me-1 p-3 rounded-3 livre-chart graphic">
+        <h3>10 livres le plus empruntés</h3>
+        <canvas baseChart
+              [data]="emptuntParCategorieData"
+              [options]="empruntParCategorieOptions"
+              [type]="'bar'"
+              >
+        </canvas>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-2">
+      <div class="me-1 p-3 rounded-3 livre-chart graphic">
+        <h3>Emprunts par catégorie et par mois</h3>
+        <canvas baseChart
+              [data]="emptuntParCategorieData"
+              [options]="empruntParCategorieOptions"
+              [type]="'bar'"
+              >
+        </canvas>
+      </div>
+    </div>
+    <div class= "col-sm-12 col-md-6 col-lg-2 mb-2">
+      <div class="p-3 rounded-3 livre-chart graphic">
+        <h3 class="mb-5">Livre par états</h3>
+        <canvas baseChart
+            [data]="livreEmpruntsVsDispoData"
+            [type]="'doughnut'"
+            >
+        </canvas>
+      </div>
+    </div>
+    <div class= "col-sm-12 col-md-6 col-lg-2 mb-2">
+      <div class="p-3 rounded-3 livre-chart graphic">
+        <h3 class="mb-5">Disponibilité</h3>
+        <canvas baseChart
+            [data]="livreEmpruntsVsDispoData"
+            [type]="'doughnut'"
+            >
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row p-4 mb-1">
+    <div class="col-sm-12 col-md-8 col-lg-9 py-3 px-5 table-livres rounded-3 mb-3">
+      <div class="row">
+        <div class="col text-center py-1">
+          <mat-icon (click)="onCheckListTable()" role="button">keyboard_arrow_up</mat-icon>
+        </div>
+      </div>
+      <div *ngIf="isListeLivre">
+        <app-liste-livres></app-liste-livres>
+      </div>
+      <div class="row" *ngIf="!isListeLivre">
+        <div class="col-sm-12 col-md-4">
+          <app-categories></app-categories>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <app-auteurs></app-auteurs>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <app-etat-livres></app-etat-livres>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-center py-1">
+          <mat-icon role="button" (click)="onCheckListTable()">keyboard_arrow_down</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class= "col-sm-12 col-md-4 col-lg-3 mb-2">
+      <div class="p-3 rounded-3 livre-chart graphic">
+        <h3 class="mb-5">Livre par catégorie</h3>
+        <canvas baseChart
+            [data]="livreEmpruntsVsDispoData"
+            [type]="'doughnut'"
+            >
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

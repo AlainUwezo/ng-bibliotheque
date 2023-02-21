@@ -1,0 +1,70 @@
+<div class="sidenav">
+  <div class="denomination">
+    <div class="brand">
+      <mat-icon class="bottom-0 me-2">dashboard</mat-icon>
+      <span class="align-middle">
+        <span class="fs-4">Biblio</span>
+        <span class="ms-1 text-secondary fs-6">Dashboard</span>
+      </span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="menu">
+    <mat-list role="button">
+      <h6 mat-subheader class="text-secondary text-uppercase">Menu</h6>
+        <div>
+          <a routerLink="/gestion-livres" routerLinkActive="active">
+            <mat-list-item class="w-100">
+              <mat-icon mat-list-icon>book</mat-icon>
+              <div mat-line>Gestion des livres</div>
+            </mat-list-item>
+          </a>
+        </div>
+        <div>
+          <a routerLink="/gestion-adherents" routerLinkActive="active">
+            <mat-list-item>
+              <mat-icon mat-list-icon>supervisor_account<</mat-icon>
+              <div mat-line>Adhérents</div>
+            </mat-list-item>
+          </a>
+        </div>
+        <div>
+          <a>
+            <mat-list-item>
+              <mat-icon mat-list-icon>equalizer</mat-icon>
+              <div mat-line>Emprunts</div>
+            </mat-list-item>
+          </a>
+        </div>
+        <div>
+          <a>
+            <mat-list-item>
+              <mat-icon mat-list-icon>save</mat-icon>
+              <div mat-line>Reservations</div>
+            </mat-list-item>
+          </a>
+        </div>
+    </mat-list>
+  </div>
+  <div class="profil py-3">
+    <mat-list>
+      <div class="text-secondary text-uppercase" mat-subheader>Profile</div>
+      <mat-list-item>
+        <img
+          matListAvatar
+          src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <div mat-line>Alain Uwezo</div>
+        <div mat-line class="text-secondary">Developpeur web</div>
+        <mat-icon class="ms-3" role="button">more_horiz</mat-icon>
+      </mat-list-item>
+      <div class="px-3">
+        <mat-list-item class="rounded-3 logout" role="button">
+          <mat-icon style="transform: rotate(180deg);">logout</mat-icon>
+          <span class="ms-2">Déconnexion</span>
+        </mat-list-item>
+      </div>
+    </mat-list>
+  </div>
+</div>

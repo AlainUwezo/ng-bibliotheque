@@ -1,0 +1,71 @@
+<div *ngIf="exemplaire">
+  <div class="text-end">
+    <mat-icon mat-dialog-close role="button">close</mat-icon>
+  </div>
+  <h2 class="titre px-2" mat-dialog-title>{{exemplaire.livre.titre}}</h2>
+  <mat-dialog-content>
+    <p class="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, labore impedit saepe eveniet odio magni, neque odit officiis possimus rem dolore quasi consequuntur iusto repellendus laborum molestias assumenda. Nostrum, nobis.</p>
+    <hr/>
+    <mat-list>
+      <div mat-subheader class="text-dark">Details</div>
+
+      <mat-list-item mat-line>
+        <span class="col text-secondary">Disponibilité</span>
+        <span class="col text-end">
+          <span *ngIf="exemplaire.livre.disponible">
+            <mat-icon class="text-success">check_circle</mat-icon>
+          </span>
+          <span *ngIf="!exemplaire.livre.disponible">
+            <mat-icon class="text-danger">cancel</mat-icon>
+          </span>
+        </span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <span class="col text-secondary">Catégorie</span>
+        <span class="col text-end px-2"
+          style="border-right: 4px solid blueviolet;">{{exemplaire.livre.categorie.libelle}}</span>
+      </mat-list-item>
+
+      <mat-list-item mat-line>
+        <span class="col text-secondary">Auteur</span>
+        <span class="col text-end">
+          <span class="border border-1 py-2 px-3 rounded-5">
+            {{exemplaire.auteur.nomComplet}}
+          </span>
+        </span>
+      </mat-list-item>
+      <mat-list-item>
+        <span class="col text-secondary">Date d'édition</span>
+        <span class="col text-end">
+          <mat-icon class="me-2 align-middle fs-5 text-success">date_range</mat-icon>
+          <span>{{exemplaire.livre.dateEdition | date}}</span>
+        </span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <span class="col text-secondary">Exemplaire</span>
+        <span class="col text-end">{{exemplaire.nbExemplaire}}</span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <span class="col text-secondary">Emprunté</span>
+        <span class="col text-end">6</span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <span class="col text-secondary">Date d'ajout</span>
+        <span class="col text-end">
+          <mat-icon class="me-2 align-middle fs-5 text-success">date_range</mat-icon>
+          <span>{{exemplaire.livre.created | date:'dd/MM/yyyy à hh:mm'}}</span>
+        </span>
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <mat-icon role="button" (click)="onUpdateLivre()">create</mat-icon>
+    <mat-icon role="button" (click)="onDeleteLivre()" class="ms-2 text-danger">
+      delete
+    </mat-icon>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,48 @@
+<div *ngIf="auteur">
+  <div class="text-end">
+    <mat-icon mat-dialog-close role="button">close</mat-icon>
+  </div>
+  <h2 class="titre px-2 title" mat-dialog-title>
+    Details sur l'auteur
+  </h2>
+  <mat-dialog-content>
+    <mat-list>
+      <mat-list-item>
+        <span class="col text-secondary">Prénom</span>
+        <span class="col text-end px-2">{{auteur.prenom}}</span>
+      </mat-list-item>
+
+      <mat-list-item mat-line>
+        <span class="col text-secondary">Nom</span>
+        <span class="col text-end">
+          {{auteur.nom}}
+        </span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <span class="col text-secondary">Date d'ajout</span>
+        <span class="col text-end px-2">
+          <mat-icon class="me-2 align-middle fs-5 text-success">date_range</mat-icon>
+          {{auteur.created | date: 'dd/MM/yyyy à hh:mm'}}
+        </span>
+      </mat-list-item>
+
+      <mat-list-item mat-line>
+        <span class="col text-secondary">Nombre des livres</span>
+        <span class="col text-end">4</span>
+      </mat-list-item>
+
+      <mat-list-item mat-line>
+        <span class="col text-secondary">Nb Emprunts des livres</span>
+        <span class="col text-end">23</span>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <mat-icon role="button" (click)="onUpdateAuteur()">create</mat-icon>
+    <mat-icon role="button" (click)="onDeleteAuteur()" class="ms-2 text-danger">
+      delete
+    </mat-icon>
+  </mat-dialog-actions>
+</div>

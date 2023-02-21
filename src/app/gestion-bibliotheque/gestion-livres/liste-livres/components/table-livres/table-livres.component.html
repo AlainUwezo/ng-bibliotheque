@@ -1,0 +1,39 @@
+<div class="mat-elevation-z0">
+  <table mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z0">
+
+
+    <ng-container *ngFor="let column of columnDefs" matColumnDef="{{column.name}}">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>{{column.title}}</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- On verifie si le champs ne contient pas de particularite obligeant de modification avant de l'afficher -->
+        <span *ngIf="column.name != 'livre.dateEdition' && column.name != 'livre.disponible'">
+          {{ getProperty(element, column.name) }}
+        </span>
+        <!-- Si c'est la date d'edition, on la transforme en date -->
+        <span *ngIf="column.name == 'livre.dateEdition'">
+          {{ getProperty(element, column.name) | date:'dd/MM/yyyy' }}
+        </span>
+
+        <span class="text-center" *ngIf="column.name == 'livre.disponible' && getProperty(element, 'livre.disponible') == true">
+          <button mat-raised-button color="primary" (click)="onReserveLivre($event)">
+            Réserver
+          </button>
+        </span>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row role="button" *matRowDef="let row; columns: displayedColumns;"
+      (click)="openDetailLivreDialog(row, '500ms', '500ms')"
+        [ngClass]="{'indisponible' : !row.livre.disponible, 'disponible': row.livre.disponible}"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

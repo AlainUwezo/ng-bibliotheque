@@ -1,0 +1,41 @@
+.sidenav{
+  height: 100%;
+  background-color: #263238;
+  color: white;
+  font-family: Courier New, monospace;
+}
+.profil{
+  bottom: 0%;
+  position: fixed;
+}
+.denomination{
+  padding: 0px 15px;
+}
+.denomination .brand{
+  padding: 15px 0px;
+  border-bottom: 1px solid rgb(61, 61, 61);
+}
+.menu{
+  padding: 20px 0px;
+}
+.mat-list-item{
+  color: lightgray;
+}
+.active{
+  border-left: 5px solid white;
+  color: white;
+}
+.logout{
+  background-color: rgba(255, 255,255,0.1);
+}
+.logout:hover{
+  background-color: rgba(255, 255,255,0.2);
+}
+a:hover{
+  background-color: rgba(255, 255,255,0.1);
+  border-radius: 0px 10px 10px 0px;
+}
+a{
+  text-decoration: none;
+  float: left;
+}

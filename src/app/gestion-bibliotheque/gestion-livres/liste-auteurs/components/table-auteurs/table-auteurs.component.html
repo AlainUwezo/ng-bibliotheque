@@ -1,0 +1,25 @@
+<table mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z0 w-100">
+
+        <ng-container matColumnDef="prenom">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Prénom</th>
+          <td mat-cell *matCellDef="let element">
+            {{element.prenom}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let element">
+            {{element.nom}}
+          </td>
+        </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row role="button" *matRowDef="let row; columns: displayedColumns;"
+    (click)="openDetailAuteur(row)"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[4, 10, 20]"
+                aria-label="Select page of periodic elements">
+</mat-paginator>

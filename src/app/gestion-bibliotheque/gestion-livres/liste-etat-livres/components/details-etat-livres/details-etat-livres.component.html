@@ -1,0 +1,39 @@
+<div *ngIf="etatLivre">
+  <div class="text-end">
+    <mat-icon mat-dialog-close role="button">close</mat-icon>
+  </div>
+  <h2 class="px-2 title" mat-dialog-title>
+    État : {{etatLivre.libelle}}
+  </h2>
+  <mat-dialog-content>
+    <mat-list>
+
+      <mat-list-item>
+        <span class="col text-secondary">Date d'ajout</span>
+        <span class="col text-end px-2">
+          <mat-icon class="me-2 align-middle fs-5 text-success">date_range</mat-icon>
+          {{etatLivre.created | date: 'dd/MM/yyyy à hh:mm'}}
+        </span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <span class="col text-secondary">Nombre des lirves </span>
+        <span class="col text-end px-2">12</span>
+      </mat-list-item>
+
+      <mat-list-item mat-line>
+        <span class="col text-secondary">Livres empruntés</span>
+        <span class="col text-end">
+          13
+        </span>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <mat-icon role="button" (click)="onUpdateEtatLivre()">create</mat-icon>
+    <mat-icon role="button" (click)="onDeleteEtatLivre()" class="ms-2 text-danger">
+      delete
+    </mat-icon>
+  </mat-dialog-actions>
+</div>
